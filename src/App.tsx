@@ -1,26 +1,49 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes, Link } from "react-router-dom";
 
-function App() {
+import { Main } from "./pages/Main";
+import { Biggest } from "./pages/Biggest";
+import { NearBy } from "./pages/NearBy";
+import { HouseDetail } from "./pages/HouseDetail";
+import { Create } from "./pages/Create";
+
+import "./style.css";
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <nav className="nav">
+        <ul className="nav-list">
+          <li className="nav-item">
+            <Link to="/" className="nav-link">
+              Main
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/create" className="nav-link">
+              Create
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/biggest" className="nav-link">
+              The biggest houses
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/nearby" className="nav-link">
+              Near by location
+            </Link>
+          </li>
+        </ul>
+      </nav>
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/houses/find/:id" element={<HouseDetail />} />
+        <Route path="/create" element={<Create />} />
+        <Route path="/biggest" element={<Biggest />} />
+        <Route path="/nearby" element={<NearBy />} />
+      </Routes>
     </div>
   );
-}
+};
 
 export default App;
