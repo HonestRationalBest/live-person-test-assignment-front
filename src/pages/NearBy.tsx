@@ -48,7 +48,7 @@ export const NearBy = () => {
           <li>
             <strong>Number of Rooms:</strong> {house.numberOfRooms}
           </li>
-          <li>{new Date(house.builtDate).toLocaleDateString()}</li>
+          <li><strong>Build date:</strong> {new Date(house.builtDate).toLocaleDateString()}</li>
           <li>
             <strong>Latitude:</strong> {house.latitude}
           </li>
